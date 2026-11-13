@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load wm_extras %}
+{% block title %}<title>{{ title }} | WM (Light)</title>{% endblock %}
+{% block content %}
+    <div class="d-flex align-items-center mb-3">
+        <h1 class="mb-0">{{ title }}</h1>
+        {% if create_url %}
+            <a href="{% url create_url %}" class="btn btn-primary ms-auto">Add</a>
+        {% endif %}
+    </div>
+
+    <form method="get" class="mb-3">
+        <div class="input-group">
+            {{ search_form.q }}
+            <button type="submit" class="btn btn-outline-primary">Search</button>
+        </div>
+    </form>
+
+    <div class="card">
+        <div class="table-responsive">
+            <table class="table table-vcenter card-table table-striped">
+                <thead>
+                    <tr>
+                        {% for header, path in columns %}
+                            <th>{{ header }}</th>
+                        {% endfor %}
+                        {% if update_url or delete_url %}<th class="w-1"></th>{% endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for obj in object_list %}
+                        <tr>
+                            {% for header, path in columns %}
+                                <td>{{ obj|attr:path }}</td>
+                            {% endfor %}
+                            {% if update_url or delete_url %}
+                                <td class="text-nowrap">
+                                    {% if update_url %}
+                                        <a href="{% url update_url obj.pk %}" class="btn btn-sm btn-outline-primary">Edit</a>
+                                    {% endif %}
+                                    {% if delete_url %}
+                                        <a href="{% url delete_url obj.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
+                                    {% endif %}
+                                </td>
+                            {% endif %}
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="{{ columns|length|add:1 }}" class="text-secondary">Nothing found.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

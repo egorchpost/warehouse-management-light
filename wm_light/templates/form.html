@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}<title>{{ title }} | WM (Light)</title>{% endblock %}
+{% block content %}
+    <h1 class="mb-3">{{ title }}</h1>
+
+    <div class="card">
+        <div class="card-body">
+            <form method="post" novalidate>
+                {% csrf_token %}
+
+                {% if form.non_field_errors %}
+                    <div class="alert alert-danger">
+                        {% for error in form.non_field_errors %}<div>{{ error }}</div>{% endfor %}
+                    </div>
+                {% endif %}
+
+                {% for field in form %}
+                    <div class="mb-3">
+                        <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {% if field.name == "categories" %}
+                            <div class="categories-scroll">
+                                {{ field }}
+                            </div>
+                        {% else %}
+                            {{ field }}
+                        {% endif %}
+
+                        {% if field.help_text %}
+                            <small class="form-hint">{{ field.help_text|safe }}</small>
+                        {% endif %}
+                        {% for error in field.errors %}
+                            <div class="text-danger small">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+
+                <div class="d-flex">
+                    <a href="{{ cancel_url }}" class="btn btn-link">Cancel</a>
+                    <button type="submit" class="btn btn-primary ms-auto">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+{% block pagination %}{% endblock %}

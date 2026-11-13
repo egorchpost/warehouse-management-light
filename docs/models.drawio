@@ -1,0 +1,133 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="wm-light-models" name="WM Light - Models">
+    <mxGraphModel dx="1904" dy="1077" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="clerk" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=16;" value="WarehouseClerk (AbstractUser)" vertex="1">
+          <mxGeometry height="100" width="300" x="40" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="clerk_3" parent="clerk" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=16;" value="phone_number: CharField" vertex="1">
+          <mxGeometry height="35" width="300" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="UJb2ghj9c8gNvNmTEUNe-1" parent="clerk" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=16;" value="AbstractUser fields" vertex="1">
+          <mxGeometry height="35" width="300" y="61" as="geometry" />
+        </mxCell>
+        <mxCell id="warehouse" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=16;" value="Warehouse" vertex="1">
+          <mxGeometry height="100" width="310" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="warehouse_2" parent="warehouse" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=16;" value="name: CharField" vertex="1">
+          <mxGeometry height="35" width="310" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="warehouse_3" parent="warehouse" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=16;" value="warehouse_clerk: FK -&gt; WarehouseClerk" vertex="1">
+          <mxGeometry height="35" width="310" y="61" as="geometry" />
+        </mxCell>
+        <mxCell id="balance" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=16;" value="StockBalance" vertex="1">
+          <mxGeometry height="140" width="320" x="470" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="balance_2" parent="balance" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=16;" value="stock_item: FK -&gt; StockItem" vertex="1">
+          <mxGeometry height="35" width="320" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="balance_3" parent="balance" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=16;" value="warehouse: FK -&gt; Warehouse" vertex="1">
+          <mxGeometry height="35" width="320" y="61" as="geometry" />
+        </mxCell>
+        <mxCell id="balance_4" parent="balance" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=16;" value="quantity: IntegerField" vertex="1">
+          <mxGeometry height="35" width="320" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="movement" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=16;" value="StockMovement" vertex="1">
+          <mxGeometry height="245" width="320" x="470" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="movement_2" parent="movement" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=16;" value="stock_item: FK -&gt; StockItem" vertex="1">
+          <mxGeometry height="35" width="320" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="movement_3" parent="movement" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=16;" value="warehouse: FK -&gt; Warehouse" vertex="1">
+          <mxGeometry height="35" width="320" y="61" as="geometry" />
+        </mxCell>
+        <mxCell id="movement_4" parent="movement" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=16;" value="movement_date: DateTimeField" vertex="1">
+          <mxGeometry height="35" width="320" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="movement_5" parent="movement" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=16;" value="movement_type: CharField [IN | OUT]" vertex="1">
+          <mxGeometry height="35" width="320" y="131" as="geometry" />
+        </mxCell>
+        <mxCell id="movement_6" parent="movement" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=16;" value="quantity: IntegerField" vertex="1">
+          <mxGeometry height="35" width="320" y="166" as="geometry" />
+        </mxCell>
+        <mxCell id="movement_7" parent="movement" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=16;" value="quantity_for_balance: IntegerField" vertex="1">
+          <mxGeometry height="35" width="320" y="201" as="geometry" />
+        </mxCell>
+        <mxCell id="item" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=16;" value="StockItem" vertex="1">
+          <mxGeometry height="140" width="320" x="940" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="item_2" parent="item" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=16;" value="name: CharField&#xa;" vertex="1">
+          <mxGeometry height="35" width="320" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="item_3" parent="item" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=16;" value="unit_of_measure: FK -&gt; UnitOfMeasure&#xa;" vertex="1">
+          <mxGeometry height="35" width="320" y="61" as="geometry" />
+        </mxCell>
+        <mxCell id="item_4" parent="item" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=16;" value="categories: M2M -&gt; ItemCategory" vertex="1">
+          <mxGeometry height="35" width="320" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="uom" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=16;" value="UnitOfMeasure" vertex="1">
+          <mxGeometry height="100" width="260" x="940" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="uom_2" parent="uom" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=16;" value="name: CharField&#xa;" vertex="1">
+          <mxGeometry height="35" width="260" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="uom_3" parent="uom" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=16;" value="full_name: CharField" vertex="1">
+          <mxGeometry height="35" width="260" y="61" as="geometry" />
+        </mxCell>
+        <mxCell id="cat" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=16;" value="ItemCategory" vertex="1">
+          <mxGeometry height="70" width="260" x="940" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="cat_2" parent="cat" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=16;" value="name: CharField" vertex="1">
+          <mxGeometry height="35" width="260" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="UJb2ghj9c8gNvNmTEUNe-2" edge="1" parent="1" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;rounded=0;defaultLabelBackgroundColor=page;endSize=10;" target="warehouse_3" value="">
+          <mxGeometry height="100" relative="1" width="100" as="geometry">
+            <mxPoint x="340" y="190" as="sourcePoint" />
+            <mxPoint x="390" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UJb2ghj9c8gNvNmTEUNe-3" edge="1" parent="1" source="item" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;rounded=0;defaultLabelBackgroundColor=page;exitX=-0.001;exitY=0.109;exitDx=0;exitDy=0;exitPerimeter=0;endSize=10;" target="balance_2" value="">
+          <mxGeometry height="100" relative="1" width="100" as="geometry">
+            <mxPoint x="815" y="140" as="sourcePoint" />
+            <mxPoint x="915" y="40" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UJb2ghj9c8gNvNmTEUNe-4" edge="1" parent="1" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERoneToMany;rounded=0;defaultLabelBackgroundColor=page;endSize=10;startSize=10;" target="item_4" value="">
+          <mxGeometry height="100" relative="1" width="100" as="geometry">
+            <mxPoint x="1200" y="350" as="sourcePoint" />
+            <mxPoint x="1300" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UJb2ghj9c8gNvNmTEUNe-5" edge="1" parent="1" source="uom" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;startArrow=none;rounded=0;defaultLabelBackgroundColor=page;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.991;exitY=0.134;exitDx=0;exitDy=0;exitPerimeter=0;startFill=0;endSize=10;" target="item_3" value="">
+          <mxGeometry height="100" relative="1" width="100" x="-0.006" as="geometry">
+            <mxPoint x="1310" y="219.99" as="sourcePoint" />
+            <mxPoint x="1370" y="129.99500000000012" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UJb2ghj9c8gNvNmTEUNe-6" edge="1" parent="1" source="item_2" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;rounded=0;defaultLabelBackgroundColor=page;exitX=0;exitY=-0.171;exitDx=0;exitDy=0;exitPerimeter=0;endSize=10;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="movement_2" value="">
+          <mxGeometry height="100" relative="1" width="100" as="geometry">
+            <mxPoint x="970" y="620" as="sourcePoint" />
+            <mxPoint x="820" y="649" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UJb2ghj9c8gNvNmTEUNe-7" edge="1" parent="1" source="warehouse" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;startArrow=none;rounded=0;defaultLabelBackgroundColor=page;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0;exitDx=0;exitDy=0;startFill=0;endSize=10;" target="balance_3" value="">
+          <mxGeometry height="100" relative="1" width="100" x="-0.0051" as="geometry">
+            <mxPoint x="340" y="80" as="sourcePoint" />
+            <mxPoint x="440" y="-20" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UJb2ghj9c8gNvNmTEUNe-8" edge="1" parent="1" source="warehouse" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;rounded=0;defaultLabelBackgroundColor=page;exitX=0.995;exitY=0.165;exitDx=0;exitDy=0;exitPerimeter=0;endSize=10;" value="">
+          <mxGeometry height="100" relative="1" width="100" as="geometry">
+            <mxPoint x="370" y="380" as="sourcePoint" />
+            <mxPoint x="470" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UJb2ghj9c8gNvNmTEUNe-9" parent="1" style="html=1;whiteSpace=wrap;align=left;fontSize=16;" value="&lt;div&gt;Direct modifications to the `StockBalance` model are prohibited. Changes may only be made by creating a record in `StockMovement`.&lt;/div&gt;&lt;div&gt;Direct modification of the `quantity_for_balance` attribute is prohibited; it is updated automatically based on the `movement_type` and `quantity`.&lt;/div&gt;" vertex="1">
+          <mxGeometry height="140" width="530" x="40" y="480" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
