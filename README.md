@@ -7,6 +7,14 @@ incoming and outgoing movement.
 > **Note:** This is a demonstration project created as part of a developer portfolio. 
 > It is not intended for production use.
 
+## Live Demo
+
+**Demo:** [Warehouse Management Light](https://warehouse-management-light.onrender.com/)
+
+**Demo user:** ```demo-user```   
+**Password for demo user:** ```demo-password5```
+
+
 ## Features
 
 - Custom user model (`WarehouseClerk`) with an optional phone number
@@ -116,3 +124,10 @@ python manage.py runserver
 ```
 Open http://127.0.0.1:8000/ for the site and http://127.0.0.1:8000/admin/ for the admin panel.
 
+## Load Demo Data
+
+To populate the database with demo data, run:
+
+```bash
+python manage.py loaddata demo_data.json
+```
