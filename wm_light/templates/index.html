@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load wm_extras %}
+{% block content %}
+    <h1 class="mb-4">Warehouse Management (Light)</h1>
+
+    <div class="row row-cards mb-4">
+        <div class="col-sm-6 col-lg-3">
+            <a href="{% url 'wm_light:warehouse-list' %}" class="card card-link"><div class="card-body">
+                <div class="subheader">Warehouses</div><div class="h1 mb-0">{{ num_warehouses }}</div>
+            </div></a>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <a href="{% url 'wm_light:item-list' %}" class="card card-link"><div class="card-body">
+                <div class="subheader">Stock items</div><div class="h1 mb-0">{{ num_items }}</div>
+            </div></a>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <a href="{% url 'wm_light:balance-list' %}" class="card card-link"><div class="card-body">
+                <div class="subheader">Total quantity in stock</div><div class="h1 mb-0">{{ total_quantity }}</div>
+            </div></a>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <a href="{% url 'wm_light:movement-list' %}" class="card card-link"><div class="card-body">
+                <div class="subheader">Stock movements</div><div class="h1 mb-0">{{ num_movements }}</div>
+            </div></a>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <a href="{% url 'wm_light:clerk-list' %}" class="card card-link"><div class="card-body">
+                <div class="subheader">Warehouse clerks</div><div class="h1 mb-0">{{ num_clerks }}</div>
+            </div></a>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <a href="{% url 'wm_light:unit-list' %}" class="card card-link"><div class="card-body">
+                <div class="subheader">Units of measure</div><div class="h1 mb-0">{{ num_units }}</div>
+            </div></a>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <a href="{% url 'wm_light:category-list' %}" class="card card-link"><div class="card-body">
+                <div class="subheader">Item categories</div><div class="h1 mb-0">{{ num_categories }}</div>
+            </div></a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Last movements</h3>
+            <div class="card-actions">
+                <a href="{% url 'wm_light:movement-create' %}" class="btn btn-primary">New movement</a>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-vcenter card-table">
+                <thead>
+                    <tr><th>Date</th><th>Type</th><th>Warehouse</th><th>Stock item</th><th>Quantity</th></tr>
+                </thead>
+                <tbody>
+                    {% for movement in last_movements %}
+                        <tr>
+                            <td>{{ movement.movement_date }}</td>
+                            <td>
+                                <span class="badge {% if movement.movement_type == 'IN' %}bg-green-lt{% else %}bg-red-lt{% endif %}">{{ movement.movement_type }}</span>
+                            </td>
+                            <td>{{ movement.warehouse }}</td>
+                            <td>{{ movement.stock_item }}</td>
+                            <td>{{ movement.quantity }} {{ movement.stock_item.unit_of_measure }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr><td colspan="5" class="text-secondary">No movements yet.</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

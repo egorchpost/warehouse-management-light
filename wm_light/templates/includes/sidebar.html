@@ -1,0 +1,41 @@
+{% load static %}
+{% with current=request.resolver_match.url_name %}
+<a href="{% url 'wm_light:index' %}" class="d-flex justify-content-center mb-3 mt-1">
+  <img src="{% static 'images/logo.png' %}" alt="WM (Light)" class="img-fluid">
+</a>
+<ul class="nav nav-pills flex-column">
+  <li class="nav-item">
+    <a class="nav-link {% if current == 'index' %}active{% endif %}" href="{% url 'wm_light:index' %}">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if 'clerk' in current %}active{% endif %}" href="{% url 'wm_light:clerk-list' %}">Warehouse clerks</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if 'unit' in current %}active{% endif %}" href="{% url 'wm_light:unit-list' %}">Units of measure</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if 'category' in current %}active{% endif %}" href="{% url 'wm_light:category-list' %}">Item categories</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if 'item' in current %}active{% endif %}" href="{% url 'wm_light:item-list' %}">Stock items</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if 'warehouse' in current %}active{% endif %}" href="{% url 'wm_light:warehouse-list' %}">Warehouses</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if 'balance' in current %}active{% endif %}" href="{% url 'wm_light:balance-list' %}">Stock balances</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if 'movement' in current %}active{% endif %}" href="{% url 'wm_light:movement-list' %}">Stock movements</a>
+  </li>
+</ul>
+
+{% if user.is_authenticated %}
+  <hr>
+  <div class="small text-secondary mb-2">Signed in as <strong>{{ user.username }}</strong></div>
+  <form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-outline-secondary w-100">Log out</button>
+  </form>
+{% endif %}
+{% endwith %}

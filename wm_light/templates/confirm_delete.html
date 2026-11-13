@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}<title>{{ title }} | WM (Light)</title>{% endblock %}
+{% block content %}
+    <h1 class="mb-3">{{ title }}</h1>
+
+    <div class="card">
+        <div class="card-body">
+            <p>Are you sure you want to delete <strong>{{ object }}</strong>?</p>
+            <form method="post">
+                {% csrf_token %}
+                <a href="{{ cancel_url }}" class="btn btn-link">Cancel</a>
+                <button type="submit" class="btn btn-danger">Yes, delete</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+{% block pagination %}{% endblock %}
