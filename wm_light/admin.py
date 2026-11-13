@@ -19,7 +19,8 @@ class WarehouseClerkAdmin(UserAdmin):
         ("Additional info", {"fields": ("phone_number",)}),
     )
     add_fieldsets = UserAdmin.add_fieldsets + (
-        ("Additional info", {"fields": ("first_name", "last_name", "phone_number")}),
+        ("Additional info",
+         {"fields": ("first_name", "last_name", "phone_number")}),
     )
 
 

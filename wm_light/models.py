@@ -84,8 +84,12 @@ class ItemCategory(models.Model):
 
 class StockItem(models.Model):
     name = models.CharField(max_length=200)
-    unit_of_measure = models.ForeignKey(UnitOfMeasure, on_delete=models.RESTRICT)
-    categories = models.ManyToManyField(ItemCategory, related_name="stock_items")
+    unit_of_measure = (
+        models.ForeignKey(UnitOfMeasure, on_delete=models.RESTRICT)
+    )
+    categories = (
+        models.ManyToManyField(ItemCategory, related_name="stock_items")
+    )
 
     class Meta:
         ordering = ["name"]
@@ -101,7 +105,9 @@ class StockItem(models.Model):
 
 class Warehouse(models.Model):
     name = models.CharField(max_length=200)
-    warehouse_clerk = models.ForeignKey(WarehouseClerk, on_delete=models.RESTRICT)
+    warehouse_clerk = (
+        models.ForeignKey(WarehouseClerk, on_delete=models.RESTRICT)
+    )
 
     class Meta:
         ordering = ["name"]

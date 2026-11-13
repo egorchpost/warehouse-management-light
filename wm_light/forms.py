@@ -26,11 +26,13 @@ class TablerFormMixin:
                 css = "form-select"
             else:
                 css = "form-control"
-            widget.attrs["class"] = f"{widget.attrs.get('class', '')} {css}".strip()
+            widget.attrs["class"] = (
+                f"{widget.attrs.get('class', '')} {css}".strip()
+            )
 
 
 class SearchForm(forms.Form):
-    q = forms.CharField(
+    q = forms.CharField(  # noqa: VNE001
         required=False,
         label="",
         widget=forms.TextInput(

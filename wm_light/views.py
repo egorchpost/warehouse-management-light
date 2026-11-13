@@ -223,8 +223,10 @@ class ItemCategoryDeleteView(BaseDeleteView):
 
 class StockItemListView(BaseListView):
     model = StockItem
-    queryset = StockItem.objects.select_related("unit_of_measure").prefetch_related(
-        "categories"
+    queryset = (
+        StockItem.objects.select_related("unit_of_measure").prefetch_related(
+            "categories"
+        )
     )
     title = "Stock items"
     columns = [
